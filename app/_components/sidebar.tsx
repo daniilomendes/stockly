@@ -1,9 +1,9 @@
 const Sidebar = () => {
   return (
-    <div className="w-64 bg-white ">
+    <div className="w-64 bg-white">
       {/* Imagem */}
       <div className="px-32 py-6">
-        <h1 className="font-bold text-2xl">STOCKLY</h1>
+        <h1 className="text-2xl font-bold">STOCKLY</h1>
       </div>
 
       {/* BOTÕES */}
