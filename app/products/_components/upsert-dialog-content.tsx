@@ -27,7 +27,7 @@ import { useForm } from "react-hook-form";
 import {
   upsertProductSchema,
   UpsertProductSchema,
-} from "@/app/_schemas/create-product-schema";
+} from "@/app/_schemas/upsert-product-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { upsertProduct } from "@/app/_actions/product/upsert-product";
 
