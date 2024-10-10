@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-export type UpsertProductSchema = z.infer<typeof upsertProductSchema>;
-
 export const upsertProductSchema = z.object({
   id: z.string().uuid().optional(),
   name: z
@@ -22,3 +20,5 @@ export const upsertProductSchema = z.object({
     .int()
     .nonnegative("O número deve ser maior ou igual a 0"),
 });
+
+export type UpsertProductSchema = z.infer<typeof upsertProductSchema>;
