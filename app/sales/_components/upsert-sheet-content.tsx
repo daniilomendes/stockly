@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/app/_components/ui/button";
-import { Combobox, ComboboxOption } from "@/app/_components/ui/combobox";
+import { ComboboxOption } from "@/app/_components/ui/combobox";
 import {
   Form,
   FormControl,
@@ -38,6 +38,13 @@ import { useForm } from "react-hook-form";
 import SalesTableDropdownMenu from "./table-dropdown-menu";
 import { createSale } from "@/app/_actions/sale/create-sale";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/app/_components/ui/select";
 
 interface UpsertSheetContentProps {
   products: Product[];
@@ -166,14 +173,21 @@ const UpsertSheetContent = ({
             control={form.control}
             name="productId"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem className="flex w-full flex-col gap-2">
                 <FormLabel>Produto</FormLabel>
                 <FormControl>
-                  <Combobox
-                    placeholder="Selecione um produto"
-                    options={productOptions}
-                    {...field}
-                  />
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione um produto" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {productOptions.map((product) => (
+                        <SelectItem value={product.value} key={product.value}>
+                          {product.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
