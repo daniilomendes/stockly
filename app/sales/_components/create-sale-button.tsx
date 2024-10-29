@@ -12,23 +12,14 @@ interface CreateSaleButtonProps {
   productOptions: ComboboxOption[];
 }
 
-const CreateSaleButton = ({
-  products,
-  productOptions,
-}: CreateSaleButtonProps) => {
+const CreateSaleButton = (props: CreateSaleButtonProps) => {
   const [sheetIsOpen, setSheetIsOpen] = useState(false);
-
   return (
     <Sheet open={sheetIsOpen} onOpenChange={setSheetIsOpen}>
       <SheetTrigger asChild>
-        <Button>Nova venda</Button>
+        <Button>Nova Venda</Button>
       </SheetTrigger>
-
-      <UpsertSheetContent
-        onSubmitSuccess={() => setSheetIsOpen(false)}
-        products={products}
-        productOptions={productOptions}
-      />
+      <UpsertSheetContent setSheetIsOpen={setSheetIsOpen} {...props} />
     </Sheet>
   );
 };

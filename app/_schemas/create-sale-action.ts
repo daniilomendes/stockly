@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createSaleAction = z.object({
+export const schemaCreateSaleAction = z.object({
   products: z.array(
     z.object({
       id: z.string().uuid(),
@@ -9,4 +9,4 @@ export const createSaleAction = z.object({
   ),
 });
 
-export type CreateSaleAction = z.infer<typeof createSaleAction>;
+export type CreateSaleAction = z.infer<typeof schemaCreateSaleAction>;
