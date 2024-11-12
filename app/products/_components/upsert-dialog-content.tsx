@@ -52,6 +52,7 @@ const UpsertProductDialogContent = ({
       toast.error("Ocorreu um erro ao salvar o produto!");
     },
   });
+
   const form = useForm<UpsertProductSchema>({
     shouldUnregister: true,
     resolver: zodResolver(upsertProductSchema),
@@ -60,15 +61,16 @@ const UpsertProductDialogContent = ({
     },
   });
 
+  const onSubmit = (data: UpsertProductSchema) => {
+    executeUpsertProduct({ ...data, id: defaultValues?.id });
+  };
+
   const isEditing = !!defaultValues;
 
   return (
     <DialogContent>
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(executeUpsertProduct)}
-          className="space-y-8"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <DialogHeader>
             <DialogTitle>{isEditing ? "Editar" : "Criar"} produto</DialogTitle>
             <DialogDescription>Insira as informações abaixo</DialogDescription>
