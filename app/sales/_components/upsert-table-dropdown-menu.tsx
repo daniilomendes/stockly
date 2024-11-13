@@ -17,15 +17,15 @@ import {
   TrashIcon,
 } from "lucide-react";
 
-interface SalesTableDropdownMenuProps {
+interface UpsertTSaleTableDropdownMenuProps {
   product: Pick<Product, "id">;
   onDelete: (productId: string) => void;
 }
 
-const SalesTableDropdownMenu = ({
+const UpsertSaleTableDropdownMenu = ({
   product,
   onDelete,
-}: SalesTableDropdownMenuProps) => {
+}: UpsertTSaleTableDropdownMenuProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -63,4 +63,4 @@ const SalesTableDropdownMenu = ({
   );
 };
 
-export default SalesTableDropdownMenu;
+export default UpsertSaleTableDropdownMenu;
