@@ -1,7 +1,7 @@
 "use server";
 
 import { actionClient } from "@/app/_lib/safe-action";
-import { deleteSaleSchema } from "./schema";
+import { deleteSaleSchema } from "../../../_schemas/delete-sale-schema";
 import { db } from "@/app/_lib/prisma";
 import { revalidatePath } from "next/cache";
 

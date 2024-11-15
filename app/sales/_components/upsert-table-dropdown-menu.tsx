@@ -1,5 +1,4 @@
 import { Button } from "@/app/_components/ui/button";
-import { DialogTrigger } from "@/app/_components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,13 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
 import { Product } from "@prisma/client";
-
-import {
-  MoreHorizontalIcon,
-  ClipboardCopyIcon,
-  EditIcon,
-  TrashIcon,
-} from "lucide-react";
+import { MoreHorizontalIcon, ClipboardCopyIcon, TrashIcon } from "lucide-react";
 
 interface UpsertTSaleTableDropdownMenuProps {
   product: Pick<Product, "id">;
@@ -43,13 +36,6 @@ const UpsertSaleTableDropdownMenu = ({
           <ClipboardCopyIcon size={16} />
           Copiar ID
         </DropdownMenuItem>
-
-        <DialogTrigger asChild>
-          <DropdownMenuItem className="gap-1.5">
-            <EditIcon size={16} />
-            Editar
-          </DropdownMenuItem>
-        </DialogTrigger>
 
         <DropdownMenuItem
           className="gap-1.5"
